@@ -1,6 +1,6 @@
-from app import db
-from models import User
-from models import Workout
+from .app import db
+from .models import User
+from .models import Workout
 from flask import Blueprint, render_template,redirect, request,flash,abort, url_for
 from flask_login import login_required, current_user
 
@@ -11,6 +11,11 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index():
     return render_template('index.html')
+
+
+@main.route('/add_information')
+def add_information():
+    return render_template('additional_data.html')
 
 @main.route('/profile')
 @login_required

@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block head %}{{super()}}
+<link rel="stylesheet"
+ href= "{{url_for('static', filename ='extended_beauty.css')}}"
+/>
+{% endblock %}{% block content %}
+<h1>Welcome, {{ name }}</h1>
+<p></p>
+<div class="col-md-4 col-md-offset-4">
+  <form method="POST" action="/add_information">
+    <h2>Add your Weight</h2>
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input
+        type="number"
+        class="form-control"
+        id="weight"
+        name="weight"
+        aria-describedby="weightHelp"
+        placeholder="Please enter your weight"
+      />
+    </div>
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input
+        type="text"
+        class="form-control"
+        id="size"
+        name="size"
+        aria-describedby="sizeHelp"
+        placeholder="please enter your size"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add information</button>
+  </form>
+</div>
+{% endblock %}
