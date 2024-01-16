@@ -1,4 +1,4 @@
-from app import db 
+from .app import db 
 from flask_login import UserMixin
 from datetime import datetime
 
@@ -7,6 +7,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(100))
+    weight = db.Column(db.Integer)
+    size = db.Column(db.Integer)
+    test_test = db.Column(db.Integer)
     workouts = db.relationship('Workout', backref = 'author', lazy=True)
     
     
@@ -16,3 +19,11 @@ class Workout(db.Model):
     date_posted = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     comment = db.Column(db.Text, nullable =False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+    
+    
+    
+class Workout_program(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    biceps = db.Column(db.Integer, nullable = True)
+    chest = db.Column(db.Integer, nullable = True)
+    cardio = db.Column(db.Integer, nullable = True)
