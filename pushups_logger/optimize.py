@@ -167,21 +167,3 @@ def interpreter(p_exos):
         if p_exos[i] != 0:
             d[names[i]] = p_exos[i]
     return d
-
-# def eval(obj,poid,T_max,Reps,Exos):  #notre fonction qui permet d'évaleur les résultats
-#  print("Les mucles solitcités sont:",np.dot(poid,Exos),
-#       "\n avec pour objectif:",obj)
-#  print("Le temps  de notre exercice est" ,np.dot(poid,Reps)/60,
-#       "pour un objectif de",T_max/60 )
- 
-# poids=p_opt(obj1,T_max1,Rep,Exo)
-# eval(obj1,poids,T_max1,Rep,Exo)
-# #%%
-# #test
-# for i in range (0,15):
-#   obj_i=np.random.randint(2, size=12)
-#   poids=p_opt(obj_i,T_max1,Rep,Exo)
-#   eval(obj_i,poids,T_max1,Rep,Exo)
-
-# #ATTENTION: il faut que les temps soit sufisament grand pour qu'on puisse faire 
-# #tous les exercices
