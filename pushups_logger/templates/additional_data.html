@@ -1,8 +1,11 @@
 {% extends "base.html" %} {% block head %}{{super()}}
 <link rel="stylesheet"
- href= "{{url_for('static', filename ='extended_beauty.css')}}"
+ href= "{{url_for('static', filename ='css/extended_beauty.css')}}"
 />
 {% endblock %}{% block content %}
+<link rel="stylesheet"
+ href= "{{url_for('static', filename ='css/extended_beauty.css')}}"
+/>
 <h1>Welcome, {{ name }}</h1>
 <p></p>
 <div class="col-md-4 col-md-offset-4">
@@ -28,6 +31,39 @@
         name="size"
         aria-describedby="sizeHelp"
         placeholder="please enter your size"
+      />
+    </div>
+    <div class="form-group">
+      <label for="cardio_objective">frequence</label>
+      <input
+        type="number"
+        class="form-control"
+        id="freq"
+        name="freq"
+        aria-describedby="sizeHelp"
+        placeholder="please enter a number between 1 and 7"
+      />
+    </div>
+    <div class="form-group">
+      <label for="cardio_objective">cardio_objective</label>
+      <input
+        type="number"
+        class="form-control"
+        id="cardio_objective"
+        name="cardio_objective"
+        aria-describedby="sizeHelp"
+        placeholder="please enter 0 or 1"
+      />
+    </div>
+    <div class="form-group">
+      <label for="body_building_objective">body_building_objective</label>
+      <input
+        type="number"
+        class="form-control"
+        id="body_building_objective"
+        name="body_building_objective"
+        aria-describedby="sizeHelp"
+        placeholder="please enter 0 or 1"
       />
     </div>
     <button type="submit" class="btn btn-primary">Add information</button>

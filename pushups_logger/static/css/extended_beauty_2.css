@@ -1,0 +1,33 @@
+h1,
+h2,
+h4,
+p {
+  font-family: "Arvo", serif;
+}
+
+p {
+  font-size: 17px;
+}
+
+#intro {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+body {
+  background-image: url('../images/background_email.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .center form {
+    width: 50%;
+    height: 50%;
+  }

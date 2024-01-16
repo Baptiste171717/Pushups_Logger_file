@@ -1,0 +1,145 @@
+ .u-section-1 {
+  background-image: url("../images/background_workout_session.jpeg");
+  background-position: 50% 50%;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 493px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  text-decoration: underline !important;
+  margin: 20px auto 0;
+}
+
+.u-section-1 .u-accordion-1 {
+  width: 800px;
+  margin: 15px auto 60px;
+}
+
+.u-section-1 .u-accordion-link-1 {
+  font-weight: 700;
+  background-image: none;
+  padding: 20px 30px;
+}
+
+.u-section-1 .u-icon-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.u-section-1 .u-accordion-pane-1 {
+  min-height: 104px;
+  background-image: none;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 8px 0;
+}
+
+.u-section-1 .u-image-1 {
+  width: 90px;
+  height: 89px;
+  margin: 0 auto 0 10px;
+}
+
+.u-section-1 .u-text-2 {
+  margin: -79px -40px 0 100px;
+}
+
+.u-section-1 .u-accordion-link-2 {
+  font-weight: 700;
+  background-image: none;
+  padding: 20px 30px;
+}
+
+.u-section-1 .u-icon-2 {
+  height: 20px;
+  width: 20px;
+}
+
+.u-section-1 .u-accordion-pane-2 {
+  min-height: 118px;
+  background-image: none;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.u-section-1 .u-accordion-link-3 {
+  font-weight: 700;
+  background-image: none;
+  padding: 20px 30px;
+}
+
+.u-section-1 .u-icon-3 {
+  height: 20px;
+  width: 20px;
+}
+
+.u-section-1 .u-accordion-pane-3 {
+  min-height: 104px;
+  background-image: none;
+  height: auto;
+}
+
+.u-section-1 .u-container-layout-3 {
+  padding: 30px;
+}
+
+.u-section-1 .u-text-4 {
+  margin: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 341px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-accordion-1 {
+    width: 720px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-accordion-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-container-layout-3 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-accordion-1 {
+    width: 340px;
+  }
+}

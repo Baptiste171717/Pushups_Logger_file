@@ -3,14 +3,16 @@ from .models import User
 from .models import Workout
 from flask import Blueprint, render_template,redirect, request,flash,abort, url_for
 from flask_login import login_required, current_user
-
+import jsons 
+import numpy as np
+from .optimize import interpreter
 
 main = Blueprint('main', __name__)
 
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('Accueil.html')
 
 
 @main.route('/add_information')
@@ -20,7 +22,23 @@ def add_information():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name =current_user.name)
+    workouts= Workout.query.filter_by( author = current_user ).one()
+    Workout_program = workouts.Workout_session_list
+    Workout_program =jsons.loads(Workout_program)
+    Workout_program = np.array(Workout_program)   
+    return render_template('Your-workout-program_2.html', name =current_user, Workout_program = Workout_program, size_session = len(Workout_program))
+
+@main.route("/workout_session/<int:workout_id>/direct", methods = ['GET', 'POST'])
+@login_required
+def workout_session(workout_id):
+    workouts= Workout.query.filter_by( author = current_user ).one()
+    Workout_program = workouts.Workout_session_list
+    Workout_program =jsons.loads(Workout_program)
+    Workout_program = np.array(Workout_program)
+    Workout_program_day = Workout_program[workout_id]
+    Workout_dic = interpreter(Workout_program_day)
+    size_workout = len(Workout_dic) 
+    return render_template('Workout-Session.html', workout_session_number = workout_id, size_workout = size_workout, Workout_dic = Workout_dic)
 
 @main.route('/new')
 @login_required
