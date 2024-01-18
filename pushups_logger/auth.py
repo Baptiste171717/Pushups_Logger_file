@@ -74,6 +74,7 @@ def new_information():
     cardio_objective = int(request.form.get('cardio_objective'))
     body_building_objective = int(request.form.get('body_building_objective'))
     freq = int(request.form.get('freq'))
+    T_max = int(request.form.get('T_max'))*60
     
     user = User.query.filter_by(id = current_user.id).first_or_404()
     
@@ -81,10 +82,11 @@ def new_information():
     user.size = size
     user.cardio_objective = cardio_objective
     user.body_building_objective = body_building_objective
+    user.T_max = T_max
     cardio_objective_bool = bool(cardio_objective)
     body_building_objective_bool = bool(body_building_objective)
     Workout_program = repartition_jours(freq, body_building_objective_bool, cardio_objective_bool)
-    Workout_session = create_workout_session(Workout_program)
+    Workout_session = create_workout_session(Workout_program, T_max)
     lst = Workout_session.tolist()
     json_str = jsons.dumps(lst)
     workout = Workout( Workout_session_list = json_str, comment= "so cool", author = current_user)

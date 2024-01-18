@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     size = db.Column(db.Integer)
     cardio_objective = db.Column(db.Integer)
     body_building_objective = db.Column(db.Integer)
+    T_max = db.Column(db.Integer)
     workouts = db.relationship('Workout', backref = 'author', lazy=True)
     
     

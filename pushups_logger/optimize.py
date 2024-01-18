@@ -154,10 +154,10 @@ def p_opt(obj,T_max = T_max1, Reps = Rep, Exos =Exo): #notre fonction d'optimisa
 
 
 
-def create_workout_session(day_repetition):
+def create_workout_session(day_repetition, T_max):
     workout_session = []
     for row in day_repetition:
-        workout_session.append(p_opt(row))
+        workout_session.append(p_opt(row, T_max))
     return np.array(workout_session)
         
         
