@@ -167,3 +167,22 @@ def interpreter(p_exos):
         if p_exos[i] != 0:
             d[names[i]] = p_exos[i]
     return d
+
+
+
+def opt_mois_avec_mem(day_repetition,T_max = T_max1 ,Reps = Rep ,Exos =Exo):
+    L = day_repetition
+    Exo_mem = np.column_stack([Exos, np.zeros(Exo.shape[0])] ) #on creé la colonne mémoire
+    e=1
+    a=np.append(L[0],0)
+    opt=p_opt(a,T_max,Reps,Exo_mem)
+    Prog=np.array([opt])
+    for i in range (0,len(opt)):
+             Exo_mem[i][-1]+=e*opt[i]
+    for x in L[1:]:
+        x=np.append(x,0)
+        opt=p_opt(x,T_max,Reps,Exo_mem)
+        Prog=np.append(Prog,[opt],axis=0)
+        for i in range (0,len(opt)):
+              Exo_mem[i][-1]+=e*opt[i]
+    return( Prog)

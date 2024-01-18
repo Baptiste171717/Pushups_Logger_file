@@ -5,7 +5,7 @@ from .models import User
 from .models import Workout
 from .app import db
 from sqlalchemy.exc import IntegrityError
-from .optimize import repartition_jours, create_workout_session
+from .optimize import repartition_jours, create_workout_session, opt_mois_avec_mem
 import jsons 
 
 auth = Blueprint('auth',__name__)
@@ -86,7 +86,7 @@ def new_information():
     cardio_objective_bool = bool(cardio_objective)
     body_building_objective_bool = bool(body_building_objective)
     Workout_program = repartition_jours(freq, body_building_objective_bool, cardio_objective_bool)
-    Workout_session = create_workout_session(Workout_program, T_max)
+    Workout_session = opt_mois_avec_mem(Workout_program, T_max)
     lst = Workout_session.tolist()
     json_str = jsons.dumps(lst)
     workout = Workout( Workout_session_list = json_str, comment= "so cool", author = current_user)
