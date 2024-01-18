@@ -52,7 +52,7 @@ def login_post():
     remember = True if request.form.get('remember') else False
    
     user = User.query.filter_by( email = email).first() 
-    # login_user(user, remember=remember)
+
 
     if not user or not check_password_hash(user.password, password):
         return render_template('signup_page_2.html')
@@ -92,7 +92,7 @@ def new_information():
     
     db.session.commit()
     
-    # flash('Your data have been uploaded !')
+
     
     return redirect(url_for('main.profile'))
 
@@ -118,7 +118,6 @@ def update_information(user_id):
         db.session.commit()
         flash('Your data have been updated')
         return redirect(url_for('main.profile'))
-
     return render_template('Your-workout-program_2.html', user = user)
 
 

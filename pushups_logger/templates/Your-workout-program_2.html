@@ -87,9 +87,9 @@
             </thead>
             <tbody class="u-align-center u-gradient u-table-body u-table-body-1">
               <tr style="height: 45px;">
-                <td class="u-border-1 u-border-grey-30 u-gradient u-table-cell u-table-cell-5">{{ current_user.name}}</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.weight }}</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.size }}</td>
+                <td class="u-border-1 u-border-grey-30 u-gradient u-table-cell u-table-cell-5">{{current_user.name}}</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.weight }} kg</td>
+                <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.size }} cm</td>
                 <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.cardio_objective }}</td>
                 <td class="u-border-1 u-border-grey-30 u-table-cell">{{ current_user.body_building_objective }}</td>
               </tr>
@@ -98,7 +98,7 @@
         </div>
         <div class="u-expanded-width u-layout-horizontal u-list u-list-1">
           <div class="u-repeater u-repeater-1">
-            {% for i in range( 1, size_session) %}
+            {% for i in range( 1, size_session +1) %}
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-container-layout-1">
                 <img class="u-expanded-width u-image u-image-round u-radius u-image-1" src="{{url_for('static', filename ='images/Gradient.png')}}"  alt="" data-image-width="1080" data-image-height="1920">

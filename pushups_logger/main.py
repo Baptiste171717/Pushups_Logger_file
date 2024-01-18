@@ -26,7 +26,7 @@ def profile():
     Workout_program = workouts.Workout_session_list
     Workout_program =jsons.loads(Workout_program)
     Workout_program = np.array(Workout_program)   
-    return render_template('Your-workout-program_2.html', name =current_user, Workout_program = Workout_program, size_session = len(Workout_program))
+    return render_template('Your-workout-program_2.html', Workout_program = Workout_program, size_session = len(Workout_program))
 
 @main.route("/workout_session/<int:workout_id>/direct", methods = ['GET', 'POST'])
 @login_required
@@ -35,7 +35,7 @@ def workout_session(workout_id):
     Workout_program = workouts.Workout_session_list
     Workout_program =jsons.loads(Workout_program)
     Workout_program = np.array(Workout_program)
-    Workout_program_day = Workout_program[workout_id]
+    Workout_program_day = Workout_program[workout_id -1]
     Workout_dic = interpreter(Workout_program_day)
     size_workout = len(Workout_dic) 
     return render_template('Workout-Session.html', workout_session_number = workout_id, size_workout = size_workout, Workout_dic = Workout_dic)
