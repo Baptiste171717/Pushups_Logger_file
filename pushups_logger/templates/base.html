@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     {% block head %}
-    <title>Push-Ups Logger</title>
+    <title>The Fitness App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="shortcut icon"
@@ -16,7 +16,7 @@
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename= 'beauty.css') }}"
+      href="{{ url_for('static', filename= 'css/beauty.css') }}"
     />
     <link
       rel="stylesheet"
@@ -48,7 +48,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{ url_for('main.index') }}"
-        >Push-Ups Logger</a
+        >The Fitness App</a
       >
       <button
         class="navbar-toggler"
@@ -61,7 +61,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="form-inline my-2 my-lg-0">
          {% if not current_user.is_authenticated %}
@@ -87,6 +87,13 @@
             >Log Out</a
           >
           {% endif %}
+          <a 
+            href="{{ url_for('main.display_concept') }}"
+            class="btn btn-outline-danger"
+            role="button"
+            style="margin-rigth: 4px;"
+            >Concept</a
+          >
         </form>
       </div>
     </nav>

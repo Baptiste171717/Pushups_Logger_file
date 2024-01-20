@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block head %}{{super()}}
+<link rel="stylesheet"
+ href= "{{url_for('static', filename ='css/extended_beauty_3.css')}}"
+/>
+{% endblock %}{% block content %}
+<head>
+	<title>Fitness App</title>
+	<style>
+		body {
+			background-image: url("../static/images/BackgroundConcept_3.jpeg");
+			background-size: cover;
+      text-align: center;
+      background-position: bottom right;
+			font-size: 20px;
+			color: gold;
+		}
+		.container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>What this Fitness-app does :</h1>
+		<p>First you choose the frequency, which is the number of times you want to train per week. You must train at least once a week, and you cannot exceed seven workouts per week.</p>
+		<p>Then, you can choose how much time you want to workout, the default duration is 120 minutes. Thus T_max represents the approximate duration you want for a training session.</p>
+		<p>After, you can say whether you want some monotony with your session, that is whether you want to have different exercises for each workout-session.</p>
+		<p>Then, you can decide whether you want to do only cardio, bodybuilding, or mix them both.</p>
+		<p>Finally, a new workout program will be generated for a whole month, and you will be able to access any session whenever you want.</p>
+		<p>Have the best workout time!!!</p>
+	</div>
+</body>
+</html>
+{% endblock %}

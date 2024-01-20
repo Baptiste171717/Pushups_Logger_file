@@ -16,6 +16,7 @@ def index():
 
 
 @main.route('/add_information')
+@login_required
 def add_information():
     return render_template('additional_data.html')
 
@@ -87,3 +88,10 @@ def delete_workout(workout_id):
     db.session.delete(workout)
     db.session.commit()
     return redirect(url_for('main.user_workouts'))
+
+
+
+
+@main.route('/display_Concept')
+def display_concept():
+    return render_template('Concept.html')

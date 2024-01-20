@@ -1,3 +1,6 @@
 * {
     font-family: "Arvo", serif;
   }
+  .collapse.navbar-collapse{
+    background-color: transparent;
+}

@@ -8,7 +8,7 @@ import numpy as np
 
 
 # DataBase=pd.read_csv('TDLOG_exercises_2.csv',index_col=0)
-DataBase=pd.read_sql_table('Workout_table','sqlite:///Workout_excel.sqlite3',index_col=0)
+DataBase=pd.read_sql_table('Workout_table','sqlite:///instance/Workout_excel.sqlite3',index_col=0)
 
 
 T_max1=60*120*2
@@ -28,7 +28,7 @@ def repartition_jours (freq,muscle,cardio):
         L[i]=copy.deepcopy(alpha)
     card=[0]*12
     card[0]=1
-    
+   
     if (cardio and  muscle==False):  #cas trivial où on ne fait que du cardio
         alpha=[0]*12 #la repartition journalière de nos poids
         alpha[0]=1
@@ -39,7 +39,7 @@ def repartition_jours (freq,muscle,cardio):
         for i in range (0,4):
             L[i]=copy.deepcopy(alpha)
         if cardio:
-            remplace(L[0],0) #on fait cardio le premier jour
+            remplace(L[0],0) #on fait cardio le premeir jour
             remplace(L[1],3,6) #on fait dos et bras
             remplace(L[2],1,2) #on fait epaules...
             remplace(L[2],7,8) #abs et pec
@@ -61,7 +61,7 @@ def repartition_jours (freq,muscle,cardio):
         remplace(L[1],8)  # abdos
         remplace(L[1],3,5) #bras
         remplace(L[2],9,11) #jambes
-        L=L*4 
+        L=L*4
         #on remplace une session par semaine par du cardio
         if cardio:
          for i in range (0,4):
@@ -75,6 +75,7 @@ def repartition_jours (freq,muscle,cardio):
         if cardio:
          L[0]=card
          remplace(L[2],3,5) #on ajoutte bras aux jour 3 avec epaules et abdos
+        L=L*4
     if freq == 5:
         remplace(L[0],3,5) #on fait bras
         remplace(L[1],6) #dos
@@ -85,6 +86,7 @@ def repartition_jours (freq,muscle,cardio):
         if cardio:
          L[1]=card
          remplace(L[2],6) #on ajoute pec au jour 3 et à pec
+        L=L*4
     if freq == 6:
        remplace(L[0],3,5) #on fait bras
        remplace(L[1],6) #dos
@@ -95,6 +97,7 @@ def repartition_jours (freq,muscle,cardio):
        if cardio:
            L[3]=card
            remplace(L[4],1,2) #on ajoute epaules au jour 5 et aux abods
+       L=L*4
     if freq == 7:
       remplace(L[0],3,5) #on fait bras
       remplace(L[1],6) #dos
@@ -105,6 +108,7 @@ def repartition_jours (freq,muscle,cardio):
       remplace(L[6],3,5) #on fait bras à novueau
       if cardio:
           L[0]=card
+      L=L*4
     return np.array(L)
 
 

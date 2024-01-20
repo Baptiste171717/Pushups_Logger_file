@@ -21,6 +21,7 @@ RUN npm install
 COPY pushups_logger pushups_logger
 COPY webpack.config.js autoapp.py ./
 COPY assets assets
+COPY instance instance
 COPY .env.example .env
 
 RUN npm run-script build
