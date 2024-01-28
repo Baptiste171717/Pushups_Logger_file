@@ -1,6 +1,7 @@
-from .app import db 
+from .app import db
 from flask_login import UserMixin
 from datetime import datetime
+
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,13 +14,13 @@ class User(db.Model, UserMixin):
     cardio_objective = db.Column(db.Integer)
     body_building_objective = db.Column(db.Integer)
     T_max = db.Column(db.Integer)
-    workouts = db.relationship('Workout', backref = 'author', lazy=True)
-    
-    
+    workouts = db.relationship("Workout", backref="author", lazy=True)
+
+
 class Workout(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    Workout_session_list = db.Column(db.JSON, nullable = False)
-    date_posted = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-    comment = db.Column(db.Text, nullable =False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
-    
+    id = db.Column(db.Integer, primary_key=True)
+    Workout_session_list = db.Column(db.JSON, nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False,
+                            default=datetime.utcnow)
+    comment = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)

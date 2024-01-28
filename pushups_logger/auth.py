@@ -1,11 +1,11 @@
-from flask import Blueprint, render_template, url_for, request, redirect, flash
+from flask import Blueprint, render_template, url_for, request, redirect
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import User
 from .models import Workout
 from .app import db
 from sqlalchemy.exc import IntegrityError
-from .optimize import repartition_jours, create_workout_session, opt_mois_avec_mem
+from .optimize import repartition_jours, opt_mois_avec_mem
 import jsons
 
 auth = Blueprint("auth", __name__)
@@ -86,14 +86,13 @@ def new_information():
     cardio_objective_bool = bool(cardio_objective)
     body_building_objective_bool = bool(body_building_objective)
     Workout_program = repartition_jours(
-        freq, body_building_objective_bool, 
-        cardio_objective_bool
+        freq, body_building_objective_bool, cardio_objective_bool
     )
     Workout_session = opt_mois_avec_mem(Workout_program, T_max)
     lst = Workout_session.tolist()
     json_str = jsons.dumps(lst)
     workout = Workout(
-        Workout_session_list = json_str, comment="so cool", author=current_user
+        Workout_session_list=json_str, comment="so cool", author=current_user
     )
     db.session.add(workout)
     db.session.commit()
@@ -105,7 +104,6 @@ def new_information():
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
-
 
 
 """ Tis function could be used if the data need to be updated"""
