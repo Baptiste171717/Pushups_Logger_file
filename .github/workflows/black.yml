@@ -11,7 +11,7 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--check --verbose"
-          src: "./src"
+          src: "./pushups_logger"
           version: "~= 22.0"
 
   flake8-lint:
