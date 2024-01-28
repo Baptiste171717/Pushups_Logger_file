@@ -1,11 +1,17 @@
 {% extends "base.html" %} {% block head %}{{super()}}
 <link rel="stylesheet"
+<<<<<<< HEAD
  href= "{{url_for('static', filename ='css/extended_beauty.css')}}"
 />
 {% endblock %}{% block content %}
 <link rel="stylesheet"
  href= "{{url_for('static', filename ='css/extended_beauty.css')}}"
 />
+=======
+ href= "{{url_for('static', filename ='extended_beauty.css')}}"
+/>
+{% endblock %}{% block content %}
+>>>>>>> 9ea77226bddb10263d79a65aac5909147be49669
 <h1>Welcome, {{ name }}</h1>
 <p></p>
 <div class="col-md-4 col-md-offset-4">
@@ -33,6 +39,7 @@
         placeholder="please enter your size"
       />
     </div>
+<<<<<<< HEAD
     <div class="form-group">
       <label for="cardio_objective">frequence</label>
       <input
@@ -77,6 +84,8 @@
         placeholder="Enter a number between 60 and 240"
       />
     </div>
+=======
+>>>>>>> 9ea77226bddb10263d79a65aac5909147be49669
     <button type="submit" class="btn btn-primary">Add information</button>
   </form>
 </div>

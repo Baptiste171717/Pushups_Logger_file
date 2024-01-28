@@ -20,6 +20,11 @@ def index():
 def add_information():
     return render_template('additional_data.html')
 
+
+@main.route('/add_information')
+def add_information():
+    return render_template('additional_data.html')
+
 @main.route('/profile')
 @login_required
 def profile():
