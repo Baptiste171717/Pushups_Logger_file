@@ -65,7 +65,7 @@ which will allow the user to add his/her own exercise into the database"""
 #     pushups = request.form.get('pushups')
 #     comment = request.form.get('comment')
 
-#     workout = Workout(pushups =pushups, comment=comment, 
+#     workout = Workout(pushups =pushups, comment=comment,
 #   author = current_user)
 #     db.session.add(workout)
 #     db.session.commit()
@@ -81,14 +81,14 @@ which will allow the user to add his/her own exercise into the database"""
 # def user_workouts():
 #     page = request.args.get('page',1, type =int )
 #     user = User.query.filter_by(email=current_user.email).first_or_404()
-#     workouts= Workout.query.filter_by( author 
+#     workouts= Workout.query.filter_by( author
 #       = user ).paginate(page=page, per_page=3)
 #     return render_template('all_workouts.html', workouts = workouts,
 #   user = user)
 
 
-"""these functions were part of the tutorial, 
-they could still used to transform 
+"""these functions were part of the tutorial,
+they could still used to transform
 the database with all the workout-exercises"""
 
 # @main.route("/workout/<int:workout_id>/update", methods = ['GET', 'POST'])
