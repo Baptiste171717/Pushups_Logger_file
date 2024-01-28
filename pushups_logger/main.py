@@ -41,53 +41,60 @@ def workout_session(workout_id):
     size_workout = len(Workout_dic) 
     return render_template('Workout-Session.html', workout_session_number = workout_id, size_workout = size_workout, Workout_dic = Workout_dic)
 
-@main.route('/new')
-@login_required
-def new_workout():
-    return render_template('create_workout.html')
 
-@main.route('/new', methods = ['POST'])
-@login_required
-def new_workout_2():
-    pushups = request.form.get('pushups')
-    comment = request.form.get('comment')
+"""Here we could display the template which will allow the user to add his/her own exercise into the database"""
+# @main.route('/new')
+# @login_required
+# def new_workout():
+#     return render_template('create_workout.html')
+
+# @main.route('/new', methods = ['POST'])
+# @login_required
+# def new_workout_2():
+#     pushups = request.form.get('pushups')
+#     comment = request.form.get('comment')
     
-    workout = Workout(pushups =pushups, comment=comment, author = current_user)
-    db.session.add(workout)
-    db.session.commit()
+#     workout = Workout(pushups =pushups, comment=comment, author = current_user)
+#     db.session.add(workout)
+#     db.session.commit()
     
-    flash('Your workout has been added!')
+#     flash('Your workout has been added!')
     
-    return redirect(url_for('main.index'))
+#     return redirect(url_for('main.index'))
 
-@main.route('/all')
-@login_required
-def user_workouts():
-    page = request.args.get('page',1, type =int )
-    user = User.query.filter_by(email=current_user.email).first_or_404()
-    workouts= Workout.query.filter_by( author = user ).paginate(page=page, per_page=3)
-    return render_template('all_workouts.html', workouts = workouts, user = user)
 
-@main.route("/workout/<int:workout_id>/update", methods = ['GET', 'POST'])
-@login_required
-def update_workout(workout_id):
-    workout =Workout.query.get_or_404(workout_id)
-    if request.method == 'POST' :
-        workout.pushups = request.form['pushups']
-        workout.comment = request.form['comment']
-        db.session.commit()
-        flash('Your workout has been updated')
-        return redirect(url_for('main.user_workouts'))
+"""This could be used to actually display the database of exercices"""
+# @main.route('/all')
+# @login_required
+# def user_workouts():
+#     page = request.args.get('page',1, type =int )
+#     user = User.query.filter_by(email=current_user.email).first_or_404()
+#     workouts= Workout.query.filter_by( author = user ).paginate(page=page, per_page=3)
+#     return render_template('all_workouts.html', workouts = workouts, user = user)
 
-    return render_template('update_workout.html', workout = workout)
 
-@main.route("/workout/<int:workout_id>/delete", methods = ['GET', 'POST'])
-@login_required
-def delete_workout(workout_id):
-    workout =Workout.query.get_or_404(workout_id)
-    db.session.delete(workout)
-    db.session.commit()
-    return redirect(url_for('main.user_workouts'))
+"""these functions were part of the tutorial, they could still used to transform the database with all the workout-exercises"""
+
+# @main.route("/workout/<int:workout_id>/update", methods = ['GET', 'POST'])
+# @login_required
+# def update_workout(workout_id):
+#     workout =Workout.query.get_or_404(workout_id)
+#     if request.method == 'POST' :
+#         workout.pushups = request.form['pushups']
+#         workout.comment = request.form['comment']
+#         db.session.commit()
+#         flash('Your workout has been updated')
+#         return redirect(url_for('main.user_workouts'))
+
+#     return render_template('update_workout.html', workout = workout)
+
+# @main.route("/workout/<int:workout_id>/delete", methods = ['GET', 'POST'])
+# @login_required
+# def delete_workout(workout_id):
+#     workout =Workout.query.get_or_404(workout_id)
+#     db.session.delete(workout)
+#     db.session.commit()
+#     return redirect(url_for('main.user_workouts'))
 
 
 

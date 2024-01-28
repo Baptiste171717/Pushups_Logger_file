@@ -1,8 +1,13 @@
+"""
+this file allows to transform the excel tables which containted all the workout exercices into a sqllite database
+"""
+
+
 
 
 import csv
 from dateutil.parser import parse
-from sqlalchemy import Column, Date, Float, Integer, String, create_engine
+from sqlalchemy import Column, Date, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
