@@ -20,7 +20,6 @@ class User(db.Model, UserMixin):
 class Workout(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Workout_session_list = db.Column(db.JSON, nullable=False)
-    date_posted = db.Column(db.DateTime, nullable=False,
-                            default=datetime.utcnow)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     comment = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)

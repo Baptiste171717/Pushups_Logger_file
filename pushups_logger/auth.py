@@ -115,7 +115,8 @@ def logout():
 #         user.weight = request.form["weight"]
 #         user.size = request.form["size"]
 #         user.cardio_objective = request.form["cardio_objective"]
-#         user.body_building_objective = request.form["body_building_objective"]
+#         user.body_building_objective =
+#          request.form["body_building_objective"]
 #         db.session.commit()
 #         return redirect(url_for("main.profile"))
 #     return render_template("Your-workout-program_2.html", user=user)

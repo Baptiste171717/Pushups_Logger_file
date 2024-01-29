@@ -9,8 +9,7 @@ sys.path.append("C:/Users/titou/OneDrive/Escritorio/cour_info_2A/TDLOG")
 
 # %%
 DataBase = pd.read_sql_table(
-    "Workout_table", "sqlite:///instance/Workout_excel.sqlite3",
-    index_col=0
+    "Workout_table", "sqlite:///instance/Workout_excel.sqlite3", index_col=0
 )
 Rep = np.array(DataBase["Reps"])
 DataBase = DataBase.drop("Reps", axis=1)

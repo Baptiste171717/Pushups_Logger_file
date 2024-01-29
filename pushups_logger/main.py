@@ -33,8 +33,7 @@ def profile():
     )
 
 
-@main.route("/workout_session/<int:workout_id>/direct",
-            methods=["GET", "POST"])
+@main.route("/workout_session/<int:workout_id>/direct", methods=["GET", "POST"])
 @login_required
 def workout_session(workout_id):
     workouts = Workout.query.filter_by(author=current_user).one()

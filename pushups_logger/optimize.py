@@ -20,7 +20,7 @@ def remplace(L, i, j=None):  # On fait les exercices iàj
     if j is None:  # le jour de liste d'exo L
         L[i] = 1
     else:
-        L[i: j + 1] = [1] * (j - i + 1)
+        L[i : j + 1] = [1] * (j - i + 1)
 
 
 def repartition_jours(freq, muscle, cardio):
@@ -159,8 +159,7 @@ def p_opt(obj, T_max=T_max1, Reps=Rep, Exos=Exo):
     )
     bornes = [(0, 3)] * len(Exo)
     minimum_info = sco.minimize(
-        g, [1] * len(Exos), method="SLSQP", bounds=bornes,
-        constraints=contraintes
+        g, [1] * len(Exos), method="SLSQP", bounds=bornes, constraints=contraintes
     )
     p_exos = np.round(minimum_info["x"])
     return p_exos
